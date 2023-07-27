@@ -18,5 +18,11 @@ class Author
     })
     @books << new_book
     new_book
+    # require 'pry';binding.pry
+  end
+
+  def sorted_publication_years
+    b = @books.map {|book| book.publication_year}.sort
+    # require 'pry';binding.pry
   end
 end
