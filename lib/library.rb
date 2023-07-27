@@ -9,9 +9,8 @@ class Library
     @authors = []
   end
 
-  # def add_author(author)
-  #   @authors << author
-  #   @authors.each do |author|
-  #   end
-  # end
+  def add_author(author)
+    @authors << author
+    author.books.map {|book| @books << book}
+  end
 end
