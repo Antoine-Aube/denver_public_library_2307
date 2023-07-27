@@ -27,4 +27,9 @@ class Library
     @checked_out_books << book
     @books.delete(book)
   end
+
+  def return(book)
+    @checked_out_books.delete(book)
+    @books << book
+  end
 end

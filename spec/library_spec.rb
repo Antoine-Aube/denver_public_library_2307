@@ -78,9 +78,26 @@ RSpec.describe Library do
       expect(dpl.books).to eq([@jane_eyre, @professor, @villette, @mockingbird])
 
       dpl.checkout(@jane_eyre)
-
+      require 'pry';binding.pry
       expect(dpl.books).to eq([@professor, @villette, @mockingbird])
       expect(dpl.checked_out_books).to eq([@jane_eyre])
     end
+  end
+  
+  describe "#return" do 
+    it "can return a book to @books and remove from @checked_out_books" do 
+      dpl = Library.new("Denver Public Library")
+      dpl.add_author(@charlotte_bronte)
+      dpl.add_author(@harper_lee)
+
+      expect(dpl.books).to eq([@jane_eyre, @professor, @villette, @mockingbird])
+      # require 'pry';binding.pry
+      dpl.checkout(@jane_eyre)
+      expect(dpl.checked_out_books).to eq([@jane_eyre])
+      
+      dpl.return(@jane_eyre)
+      expect(dpl.checked_out_books).to eq([])
+      expect(dpl.books).to eq([@jane_eyre, @professor, @villette, @mockingbird])
+    end 
   end
 end
