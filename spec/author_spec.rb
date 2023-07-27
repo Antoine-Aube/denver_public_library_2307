@@ -1,5 +1,5 @@
-pry(main)> require './lib/book'
-pry(main)> require './lib/author'
+require './lib/book'
+require './lib/author'
 
 RSpec.describe Author do 
   describe "initialize" do 
@@ -18,7 +18,7 @@ RSpec.describe Author do
     it "has an empty array of books" do 
       charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
 
-      expect(author.books).to eq([])
+      expect(charlotte_bronte.books).to eq([])
     end
   end
 end
