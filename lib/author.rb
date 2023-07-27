@@ -1,3 +1,5 @@
+require './lib/book'
+
 class Author
   attr_reader :name, :books
   def initialize(author_info)
