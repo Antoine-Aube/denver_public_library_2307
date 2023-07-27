@@ -36,8 +36,22 @@ RSpec.describe Author do
       charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
       jane_eyre = charlotte_bronte.write("Jane Eyre", "October 16, 1847")
       villette = charlotte_bronte.write("Villette", "1853")
-
+      charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
+      jane_eyre = charlotte_bronte.write("Jane Eyre", "October 16, 1847")
+      villette = charlotte_bronte.write("Villette", "1853")
+      
       expect(charlotte_bronte.books).to eq([jane_eyre, villette])
     end
   end 
+  
+  describe "#sorted_publication_years" do 
+    it "can return an array of all publation years from an author's book" do 
+      charlotte_bronte = Author.new({first_name: "Charlotte", last_name: "Bronte"})
+      villette = charlotte_bronte.write("Villette", "1853")
+      jane_eyre = charlotte_bronte.write("Jane Eyre", "October 16, 1847")
+
+      # require 'pry';binding.pry
+      expect(charlotte_bronte.sorted_publication_years).to eq(["1847", "1853"])
+    end
+  end
 end
