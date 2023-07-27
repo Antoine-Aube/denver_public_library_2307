@@ -70,17 +70,17 @@ RSpec.describe Library do
     # expect(dpl.checkout(@jane_eyre))
   end 
   
-  it "can checkout a book and add" do 
-    dpl = Library.new("Denver Public Library")
-    dpl.add_author(@charlotte_bronte)
-    dpl.add_author(@harper_lee)
+    it "can checkout a book and add" do 
+      dpl = Library.new("Denver Public Library")
+      dpl.add_author(@charlotte_bronte)
+      dpl.add_author(@harper_lee)
 
-    expect(dpl.books).to eq([@jane_eyre, @professor, @villette, @mockingbird])
+      expect(dpl.books).to eq([@jane_eyre, @professor, @villette, @mockingbird])
 
-    dpl.checkout(@jane_eyre)
+      dpl.checkout(@jane_eyre)
 
-    expect(dpl.books).to eq([@professor, @villette, @mockingbird])
-    expect(dpl.checked_out_books).to eq([@jane_eyre])
-  end
+      expect(dpl.books).to eq([@professor, @villette, @mockingbird])
+      expect(dpl.checked_out_books).to eq([@jane_eyre])
+    end
   end
 end
