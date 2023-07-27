@@ -60,4 +60,13 @@ RSpec.describe Library do
       expect(dpl.publication_time_frame_for(@charlotte_bronte)).to eq({:start => "1847", :end => "1857"})
     end
   end
+  
+  describe "#checkout" do 
+    it "has an array of checked out books" do 
+      dpl = Library.new("Denver Public Library")
+
+      expect(dpl.checked_out_books).to eq([])
+      # expect(dpl.checkout(@jane_eyre))
+    end 
+  end
 end
